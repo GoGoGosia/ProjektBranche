@@ -30,6 +30,7 @@
         {
             button1 = new Button();
             pictureBox1 = new PictureBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -52,11 +53,22 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(30, 328);
+            button3.Name = "button3";
+            button3.Size = new Size(153, 52);
+            button3.TabIndex = 5;
+            button3.Text = "OnlyGreen";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(567, 450);
+            Controls.Add(button3);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
             Name = "Form1";
@@ -68,5 +80,6 @@
         #endregion
         private Button button1;
         private PictureBox pictureBox1;
+        private Button button3;
     }
 }
