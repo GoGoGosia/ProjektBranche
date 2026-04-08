@@ -93,5 +93,47 @@ namespace ProjektBranche
                 rotateImage270();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            invertColors();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("Wczytaj obraz.");
+                return;
+            }
+
+            Bitmap bitmap = new Bitmap(pictureBox1.Image);
+            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+            pictureBox1.Image = bitmap;
+        }
+
+        private void invertColors()
+        {
+            if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("Wczytaj obraz.");
+                return;
+            }
+
+            Bitmap bitmap = new Bitmap(pictureBox1.Image);
+
+            for (int y = 0; y < bitmap.Height; y++)
+            {
+                for (int x = 0; x < bitmap.Width; x++)
+                {
+                    Color pixel = bitmap.GetPixel(x, y);
+                    Color inverted = Color.FromArgb(pixel.A, 255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
+                    bitmap.SetPixel(x, y, inverted);
+                }
+            }
+
+            pictureBox1.Image = bitmap;
+        }
     }
 }
