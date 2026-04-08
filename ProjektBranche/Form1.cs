@@ -135,5 +135,34 @@ namespace ProjektBranche
 
             pictureBox1.Image = bitmap;
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            onlyGreen();
+        }
+
+        public void onlyGreen()
+        {
+            if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("Wczytaj obraz.");
+                return;
+            }
+
+            Bitmap bitmap = new Bitmap(pictureBox1.Image);
+            for (int y = 0; y < bitmap.Height; y++)
+            {
+                for (int x = 0; x < bitmap.Width; x++)
+                {
+                    Color pixelColor = bitmap.GetPixel(x, y);
+
+                    if (!(pixelColor.G > pixelColor.R && pixelColor.G > pixelColor.B))
+                    {
+                        bitmap.SetPixel(x, y, Color.Black);
+                    }
+                }
+            }
+
+            pictureBox1.Image = bitmap;
+        }
     }
 }
